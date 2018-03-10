@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ChristmasPreparation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int paper = int.Parse(Console.ReadLine());
+            int plat = int.Parse(Console.ReadLine());
+            double litre = double.Parse(Console.ReadLine());
+            int discountPercent = int.Parse(Console.ReadLine());
+
+            double paperPrice = paper * 5.80;
+            double platPrice = plat * 7.20;
+            double litrePrice = litre * 1.20;
+
+            double allMaterialsPrice = paperPrice + platPrice + litrePrice;
+
+            double totalPrice = allMaterialsPrice - (allMaterialsPrice * discountPercent / 100);
+
+            Console.WriteLine($"{totalPrice:f3}");
+         }
+    }
+}
