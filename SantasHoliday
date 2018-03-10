@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SantasHoliday
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            string roomType = Console.ReadLine();
+            string rate = Console.ReadLine();
+
+            double roomPrice = 0;
+            switch (roomType)
+            {
+                case "room for one person":
+                    roomPrice = 18.00;
+                    break;
+                case "apartment":
+                    roomPrice = 25.00;
+                    break;
+                case "president apartment":
+                    roomPrice = 35.00;
+                    break;
+            }
+
+            double percent = 0;
+            if (days < 10)
+            {
+                if (roomType == "apartment")
+                {
+                    percent = 0.3;
+                }
+                else if (roomType == "president apartment")
+                {
+                    percent = 0.1;
+                }
+            }
+            else if (days >= 10 && days <= 15)
+            {
+                if (roomType == "apartment")
+                {
+                    percent = 0.35;
+                }
+                else if (roomType == "president apartment")
+                {
+                    percent = 0.15;
+                }
+            }
+            else if (days > 15)
+            {
+                if (roomType == "apartment")
+                {
+                    percent = 0.5;
+                }
+                else if (roomType == "president apartment")
+                {
+                    percent = 0.2;
+                }
+            }
+
+            double stayPriceRoom = (days - 1) * roomPrice;
+
+            double stayPrice = stayPriceRoom - (stayPriceRoom * percent);
+            if (roomType == "room for one person")
+            {
+                stayPrice = (days - 1) * roomPrice;
+            }
+
+            double totalDiscount = 0;
+            if (rate == "positive")
+            {
+                totalDiscount = stayPrice * 1.25;
+            }
+            else if (rate == "negative")
+            {
+                totalDiscount = stayPrice * 0.9;
+            }
+
+           
+            Console.WriteLine($"{totalDiscount:f2}");
+        }
+    }
+}
