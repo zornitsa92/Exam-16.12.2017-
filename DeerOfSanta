@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DeerOfSanta
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            int food = int.Parse(Console.ReadLine());
+            double firstDeerFood = double.Parse(Console.ReadLine());
+            double secondDeerFood = double.Parse(Console.ReadLine());
+            double thirdDeerFood = double.Parse(Console.ReadLine());
+
+            double totalFood = days * (firstDeerFood + secondDeerFood + thirdDeerFood);
+
+            if (food >= totalFood)
+            {
+                double diff = Math.Floor(food - totalFood);
+                Console.WriteLine($"{diff} kilos of food left.");
+            }
+            else
+            {
+                double diff = Math.Ceiling(totalFood - food);
+                Console.WriteLine($"{diff} more kilos of food are needed.");
+            }
+
+
+        }
+    }
+}
