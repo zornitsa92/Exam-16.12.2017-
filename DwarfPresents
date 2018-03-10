@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DwarfPresents
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int money = int.Parse(Console.ReadLine());
+
+            double giftPrice = 0;
+            double totalGiftPrice = 0;
+            for (int i = 0; i < n; i++)
+            {
+                string gifts = Console.ReadLine();
+
+                switch (gifts)
+                {
+                    case "sand clock":
+                        giftPrice = 2.20;
+                        break;
+                    case "magnet":
+                        giftPrice = 1.50;
+                        break;
+                    case "cup":
+                        giftPrice = 5.00;
+                        break;
+                    case "t-shirt":
+                        giftPrice = 10.00;
+                        break;
+                }
+
+                totalGiftPrice += giftPrice;                 
+            }
+                        
+            if (money >= totalGiftPrice)
+            {
+                double diff = money - totalGiftPrice;
+                Console.WriteLine($"Santa Claus has {diff:f2} more leva left!");
+            }
+            else
+            {
+                double diff = totalGiftPrice - money;
+                Console.WriteLine($"Santa Claus will need {diff:f2} more leva.");
+            }
+
+        }
+    }
+}
