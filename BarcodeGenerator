@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BarcodeGenerator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int firstNumber = int.Parse(Console.ReadLine());
+            int secondNumber = int.Parse(Console.ReadLine());
+
+            int f4 = firstNumber % 10;
+            int f3 = (firstNumber / 10) % 10;
+            int f2 = (firstNumber / 100) % 10;
+            int f1 = (firstNumber / 1000) % 10; 
+
+            int s4 = secondNumber % 10;
+            int s3 = (secondNumber / 10) % 10;
+            int s2 = (secondNumber / 100) % 10;
+            int s1 = (secondNumber / 1000) % 10;
+
+            for (int a = f1; a <= s1; a++)
+            {
+                for (int b = f2; b <= s2; b++) 
+                {
+                    for (int c = f3; c <= s3; c++)
+                    {
+                        for (int d = f4; d <= s4; d++)
+                        {
+                            if (a % 2 != 0 && 
+                                b % 2 != 0 && 
+                                c % 2 != 0 && 
+                                d % 2 != 0)
+                            {
+                                Console.Write("" + a + b + c + d + " ");
+                            }
+                        }
+                    }
+                }
+            }
+        }    
+    }
+}
